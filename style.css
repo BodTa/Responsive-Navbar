@@ -1,0 +1,117 @@
+body {
+	background: url(/images/image.webp);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+}
+.mobile-nav-toggle {
+	display: none;
+}
+@media (min-width: 35em) and (max-width: 55em) {
+	.primary-navigation a > span[aria-hidden="true"] {
+		display: none;
+	}
+}
+
+@media (max-width: 35em) {
+	body {
+		background-size: inherit;
+	}
+
+	.primary-navigation {
+		transition: 1s ease;
+		transform: translateX(100%);
+		z-index: 1000;
+		flex-direction: column;
+		position: fixed;
+		inset: 0 0 0 30%;
+		background: hsl(0 0% 0%/0.75);
+	}
+	.primary-navigation li {
+		padding: min(5vh, 3rem) 2em;
+	}
+	.mobile-nav-toggle {
+		display: block;
+		position: absolute;
+		z-index: 9999;
+		width: 2rem;
+		aspect-ratio: 1;
+		top: 2rem;
+		right: 2rem;
+		background: url(images/hamburger-menu-icon-png-white-10.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		border: none;
+	}
+}
+@supports (backdrop-filter: blur(1rem)) {
+	.primary-navigation {
+		background: hsl(0 0% 100%/0.1);
+		backdrop-filter: blur(0.75rem);
+	}
+}
+
+.flex {
+	display: flex;
+	gap: var(--gap, 1rem);
+}
+.grid {
+	display: grid;
+	gap: var(--gap, 1rem);
+}
+
+/*primary header*/
+
+/*logo*/
+.logo {
+	border-radius: 5rem;
+	width: 50px;
+	margin: 2rem;
+}
+
+.primary-header {
+	align-items: center;
+	justify-content: space-between;
+}
+.primary-navigation {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.primary-navigation a {
+	text-decoration: none;
+}
+.primary-navigation a > [aria-hidden="true"] {
+	font-weight: 700;
+	margin-inline-end: 0.75em;
+}
+.primary-navigation li {
+	padding-block: 2rem;
+	padding-inline: clamp(0.5rem, 1vw, 2rem);
+}
+.primary-navigation li > * {
+	text-transform: uppercase;
+	color: white;
+}
+.ff-sans-cond {
+	font-family: "Poppins", sans-serif;
+}
+.primary-navigation[data-visible="true"] {
+	transform: translateX(0%);
+}
+.mobile-nav-toggle[aria-expanded="true"] {
+	background: url(images/close-icon-svg-26.jpg);
+	background-size: cover;
+}
+
+.primary-navigation a:hover {
+	opacity: 0.8;
+	text-decoration: underline;
+}
+
+.logo:hover {
+	cursor: pointer;
+}
